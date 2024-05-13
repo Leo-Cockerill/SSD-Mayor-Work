@@ -8,4 +8,4 @@ views = Blueprint('views', __name__)
 
 @views.route('/') #this is the route
 def home(): #this is the function that will be executed when the route is accessed
-    return "<h1>Hello World<h1>"
+    return "<h1>Hello World</h1>"
