@@ -38,6 +38,10 @@
       </div>
     </nav>
 
+
+
+    
+
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, message in messages %}
@@ -109,5 +113,14 @@
   }
 </script>
 {% endblock %}
+
+<!-- <link rel="stylesheet" href="web19201.css">
+
+    <script
+      type="stylesheet/css"
+      src="{{ url_for('static', filename='web19201.css') }}"
+    ></script> -->
+
+
   </body>
 </html>
