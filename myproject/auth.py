@@ -8,7 +8,11 @@ def login():
 
 @auth.route('/logout')
 def logout():
-    return "<p>Logout</p>"
+    return render_template("logout.html")
+
+@auth.route('/timer')
+def timer():
+    return render_template("timer.html")
 
 
 @auth.route('/test')
