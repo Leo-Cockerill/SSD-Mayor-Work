@@ -10,7 +10,7 @@ from flask import Blueprint, render_template
 
 
 
-views = Blueprint('views', __name__, 'static/web19201.css')
+views = Blueprint('views', __name__,)
 
 @views.route('/') #this is the route
 def home(): #this is the function that will be executed when the route is accessed
