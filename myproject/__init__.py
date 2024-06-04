@@ -24,6 +24,7 @@ def create_app(): #This function is going to create the app for us
 
     # create_database(app) #This is going to create the database for us
 
+
     return app
 
 # def create_database(app): #This function is going to create the database for us

@@ -14,6 +14,15 @@ def logout():
 def timer():
     return render_template("timer.html")
 
+@auth.route('/slider')
+def slider():
+    images = [
+        '/static/assets/ed07d79937b933a1dca3918b313f0cc4.png',
+        '/static/assets/ed07d79937b933a1dca3918b313f0cc4.png',
+        '/static/assets/ed07d79937b933a1dca3918b313f0cc4.png'
+    ]
+    return render_template("index.html", images = images)
+
 
 @auth.route('/test')
 def test():
