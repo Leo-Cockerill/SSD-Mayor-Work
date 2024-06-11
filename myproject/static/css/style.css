@@ -1,0 +1,15 @@
+.top-right-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.underline-word {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.timer {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
