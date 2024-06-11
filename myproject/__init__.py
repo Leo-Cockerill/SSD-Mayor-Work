@@ -1,16 +1,11 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from os import path 
 
 
-db = SQLAlchemy() #This is the database object that we are going to use to interact with the database
-DB_NAME = "database.db" #This is the name of the database that we are going to use
 
 def create_app(): #This function is going to create the app for us
     app = Flask(__name__) #This is the app object that we are going to return
     app.config['SECRET_KEY'] = 'sjhkdshkshadkja' #Encryption of cookies and session data related to website.
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' #This is the database URI that we are going to use
-    db.init_app(app) #This is going to initialize the database object that we created above
 
     from .views import views #This is the views file that we created in the myproject folder
     from .auth import auth #This is the auth file that we created in the myproject folder
