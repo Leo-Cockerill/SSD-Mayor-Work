@@ -14,13 +14,12 @@ def create_app(): #This function is going to create the app for us
 
     from .views import views #This is the views file that we created in the myproject folder
     from .auth import auth #This is the auth file that we created in the myproject folder
-    from .timer import timer
+    
 
     app.register_blueprint(views, url_prefix='/') #This is the route for the views file
     app.register_blueprint(auth, url_prefix='/') #This is the route for the auth file
-    app.register_blueprint(timer, url_prefix='/') #This is the route for the auth file
 
-    from .models import User #This is the user class that we created in the models file
+
 
     # create_database(app) #This is going to create the database for us
 
