@@ -1,0 +1,90 @@
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div style="text-align: center; padding-top: 10px;">
+        <h1 style="font-size: 40px; font-weight: bold;">Recipes</h1>
+    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+        body, html {
+            height: 10%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            /* align-items: center; */
+            background-color: #ffffff;
+        }
+        .table-container {
+            width: 100%;
+            max-width: 2000px; /* Adjust based on your preference */
+            padding: 20px;
+            text-align: center;
+        }
+        .table {
+            color: #333; /* For white text */
+            margin-bottom: 0; /* Removes default bottom margin */
+        }
+        .table td, .table th {
+            vertical-align: middle;
+            border-top: none; /* Hides the border */
+        }
+        .gap-row {
+            height: 5px; /* Large gap between rows */
+            background-color: #333; /* Same as the body background */
+        }
+        img {
+            width: 150px;
+            height: 150px;
+        }
+</style>
+</head>
+<body>
+<div class="table-container">
+<table class="table">
+<tbody>
+<tr>
+<td style="font-size: 40px;">Soups</td>
+<td>
+    <a href="/steps">
+      <img src="/static/assets/ed07d79937b933a1dca3918b313f0cc42cfdd5cc.png" alt="placeholder">
+    </a>
+  </td>
+<!-- <td><img src="/static/assets/ed07d79937b933a1dca3918b313f0cc42cfdd5cc.png" alt="placeholder"></td> -->
+<td><img src="/static/assets/x1e35e0cfd6e707a83464ae977b68c486.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x9dab30e6e129041db81f207dfad8a18e.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x92d2a2278972429e0da31f57539ecb40.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x856665fdfe5e9fe25697ac3ba1a3be76332855e9.png" alt="Placeholder"></td>
+</tr>
+<tr class="gap-row"><td colspan="6"></td></tr>
+<tr>
+<td style="font-size: 40px;">Vegan</td>
+<td><img src="/static/assets/ed07d79937b933a1dca3918b313f0cc42cfdd5cc.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x1e35e0cfd6e707a83464ae977b68c486.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x9dab30e6e129041db81f207dfad8a18e.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x92d2a2278972429e0da31f57539ecb40.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x856665fdfe5e9fe25697ac3ba1a3be76332855e9.png" alt="Placeholder"></td>
+</tr>
+<tr class="gap-row"><td colspan="6"></td></tr>
+<tr>
+<td style="font-size: 40px;">Mains</td>
+<td><img src="/static/assets/ed07d79937b933a1dca3918b313f0cc42cfdd5cc.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x1e35e0cfd6e707a83464ae977b68c486.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x9dab30e6e129041db81f207dfad8a18e.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x92d2a2278972429e0da31f57539ecb40.png" alt="Placeholder"></td>
+<td><img src="/static/assets/x856665fdfe5e9fe25697ac3ba1a3be76332855e9.png" alt="Placeholder"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
+
+{% endblock %}
+            
