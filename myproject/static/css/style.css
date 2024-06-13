@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.bold-word {
+    font-weight: bold;
+}
+
 /* .timer {
     font-size: 2em;
     margin-bottom: 10px;
@@ -24,7 +28,7 @@
 .middle-right-image {
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     width: 500px; /* Adjust the width as needed */
     height: auto; /* Maintain the aspect ratio */
@@ -34,13 +38,13 @@
     font-size: 5.5em; /* Adjust the size as needed */
     position: absolute;
     right: 10px;
-    top: -80px; /* Adjust the position as needed */
+    top: -180px; /* Adjust the position as needed */
 }
 
 .buttons {
     position: absolute;
     right: 10px;
-    top: 25px; /* Adjust the position as needed */
+    top: -80px; /* Adjust the position as needed */
 }
 
 .buttons .btn {
