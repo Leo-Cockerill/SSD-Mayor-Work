@@ -16,4 +16,8 @@ def steps():
     ]
     return render_template("index.html", steps = steps)
 
+@auth.route('/ingredients')
+def ingredients():
+    ingredients = ['Flour', 'Sugar', 'Eggs', 'Butter', 'Milk', 'Vanilla Extract', 'Baking Powder', 'Salt']
+    return render_template("ingredients.html", ingredients=ingredients)
 

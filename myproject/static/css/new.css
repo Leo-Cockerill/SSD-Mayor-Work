@@ -1,0 +1,13 @@
+body {
+    background-color: #1aff00;
+}
+
+.large-checkbox {
+    width: -20px;
+    height: 50px;
+}
+
+.large-label {
+    font-size: 1.25rem;  /* Increase font size */
+    margin-left: 50px;
+}
