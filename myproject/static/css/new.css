@@ -2,12 +2,28 @@ body {
     background-color: #ffffff;
 }
 
-.large-checkbox {
-    width:  40px;
-    height: 40px;
-}
+
+
+
+
+
+
+
+
 
 .large-label {
     font-size: 30px;  /* Increase font size */
-    margin-left: 50px;
+    margin-left: 70px;
+    margin-top: 10px;
 }
+
+
+.large-checkbox {
+    width:  25px;
+    height: 25px;
+    margin-left: 20px; /* Move checkbox 20px to the right */
+    margin-top: 5px; /* Move checkbox 20px down */
+    margin-right: 20px; /* Move checkbox 20px to the right */
+}
+
+
