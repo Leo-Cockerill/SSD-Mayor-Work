@@ -22,9 +22,11 @@
         <div class="row mt-3">
             <div class="col-md-6">
                 <form method="GET" action="{{ url_for('auth.ingredients') }}">
+                    <input type="hidden" name="servings" value="{{ servings }}">
                     <ul class="list-group">
                         {% for ingredient, amount in adjusted_ingredients.items() %}
                             <li class="list-group-item">
+                                <input type="checkbox" id="checkbox_{{ ingredient }}" name="dummy_checkbox" style="margin-right: 10px;">
                                 <input type="radio" id="{{ ingredient }}" name="selected_ingredient" value="{{ ingredient }}" {% if selected_ingredient == ingredient %}checked{% endif %} onchange="this.form.submit()">
                                 <label for="{{ ingredient }}"><span class="ingredient-amount">{{ amount }}</span> {{ ingredient }}</label>
                             </li>

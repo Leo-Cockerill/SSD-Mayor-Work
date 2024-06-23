@@ -37,16 +37,18 @@ def ingredients():
 
     substitutes = []
     if selected_ingredient:
-            url = f'https://api.spoonacular.com/food/ingredients/substitutes?ingredientName={selected_ingredient}&apiKey={SPOONACULAR_API_KEY}'
-            response = requests.get(url)
-            data = response.json()
+        url = f'https://api.spoonacular.com/food/ingredients/substitutes?ingredientName={selected_ingredient}&apiKey={SPOONACULAR_API_KEY}'
+        response = requests.get(url)
+        data = response.json()
 
-            if 'substitutes' in data:
-                substitutes = data['substitutes']
-            else:
-                substitutes = ["No substitutes found"]
+        if 'status' in data and data['status'] == 'success' and 'substitutes' in data:
+            substitutes = data['substitutes']
+        elif 'message' in data:
+            substitutes = [data['message']]  # Handle specific error message from API
+        else:
+            substitutes = ["No substitutes found"]
 
-    return render_template("ingredients.html", ingredients=ingredients, adjusted_ingredients=adjusted_ingredients, servings=servings, selected_ingredient=selected_ingredient, substitutes=substitutes)
+    return render_template("ingredients.html", ingredients=ingredients, adjusted_ingredients=adjusted_ingredients, servings=servings, substitutes=substitutes, selected_ingredient=selected_ingredient)
 
 # @auth.route('/substitutes/<ingredient>')
 # def get_substitutes(ingredient):
