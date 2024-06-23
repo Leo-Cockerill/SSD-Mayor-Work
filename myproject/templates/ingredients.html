@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingredients List</title>
+    <title>Ingredients</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/new.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new.css') }}">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Select Your Ingredients</h1>
-        <form>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-12">
-                        {% for ingredient in ingredients %}
-                            <div class="form-check mb-2">
-                                <input class="form-check-input large-checkbox" type="checkbox" id="{{ ingredient }}" name="ingredients" value="{{ ingredient }}">
-                                <label class="form-check-label large-label" for="{{ ingredient }}">
-                                    {{ ingredient }}
-                                </label>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
+    <div class="container">
+        <h1 class="text-center mt-5">Ingredients</h1>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <form method="GET" action="{{ url_for('auth.ingredients') }}">
+                    <label for="servings">Number of servings:</label>
+                    <input type="number" id="servings" name="servings" min="1" value="{{ servings }}">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
             </div>
-            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-        </form>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <form method="GET" action="{{ url_for('auth.ingredients') }}">
+                    <ul class="list-group">
+                        {% for ingredient, amount in adjusted_ingredients.items() %}
+                            <li class="list-group-item">
+                                <input type="radio" id="{{ ingredient }}" name="selected_ingredient" value="{{ ingredient }}" {% if selected_ingredient == ingredient %}checked{% endif %} onchange="this.form.submit()">
+                                <label for="{{ ingredient }}"><span class="ingredient-amount">{{ amount }}</span> {{ ingredient }}</label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+            <div class="col-md-6" id="substitutes">
+                <h2 class="text-center">Substitutes</h2>
+                <ul class="list-group" id="substitute-list">
+                    {% if substitutes %}
+                        <h4>Substitutes for {{ selected_ingredient }}</h4>
+                        {% for substitute in substitutes %}
+                            <li class="list-group-item">{{ substitute }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="list-group-item">Select an ingredient to see substitutes</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,11 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, jsonify
+import requests
+
 
 auth = Blueprint('auth', __name__)
 
+
+SPOONACULAR_API_KEY = 'c14b8e4dea1e4b60bd840db46f91ac82'
 
 @auth.route('/steps')
 def steps():
@@ -18,6 +22,41 @@ def steps():
 
 @auth.route('/ingredients')
 def ingredients():
-    ingredients = ['Flour', 'Sugar', 'Eggs', 'Butter', 'Milk', 'Vanilla Extract', 'Baking Powder', 'Salt']
-    return render_template("ingredients.html", ingredients=ingredients)
+    ingredients = {
+    "mg flour": 200,   # in grams
+    "sugar": 100,   # in grams
+    "butter": 50,   # in grams
+    "eggs": 4,      # count
+    "milk": 500     # in ml
+}
+    servings = request.args.get('servings', 4, type=int)
+    selected_ingredient = request.args.get('selected_ingredient', None)
+    factor = servings / 4
 
+    adjusted_ingredients = {ingredient: round(amount * factor, 2) for ingredient, amount in ingredients.items()}
+
+    substitutes = []
+    if selected_ingredient:
+            url = f'https://api.spoonacular.com/food/ingredients/substitutes?ingredientName={selected_ingredient}&apiKey={SPOONACULAR_API_KEY}'
+            response = requests.get(url)
+            data = response.json()
+
+            if 'substitutes' in data:
+                substitutes = data['substitutes']
+            else:
+                substitutes = ["No substitutes found"]
+
+    return render_template("ingredients.html", ingredients=ingredients, adjusted_ingredients=adjusted_ingredients, servings=servings, selected_ingredient=selected_ingredient, substitutes=substitutes)
+
+# @auth.route('/substitutes/<ingredient>')
+# def get_substitutes(ingredient):
+#     url = f'https://api.spoonacular.com/food/ingredients/substitutes?ingredientName={ingredient}&apiKey={SPOONACULAR_API_KEY}'
+#     response = requests.get(url)
+#     data = response.json()
+    
+#     if 'substitutes' in data:
+#         substitutes = data['substitutes']
+#     else:
+#         substitutes = ["No substitutes found"]
+    
+#     return jsonify(substitutes=substitutes)
