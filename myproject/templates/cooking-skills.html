@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Tips and Ingredient Info</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Cooking Tips</h1>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <h2 class="text-center">Helpful Cooking Tips</h2>
+                <h5>Tip 1: Read the Recipe: Understand the steps and gather ingredients before starting.</h5>
+                <h5>Tip 2: Prep Ahead: Measure and chop ingredients before cooking</h5>
+                <h5>Tip 3: Keep Knives Sharp: Sharper knives make chopping easier and safer.</h5>
+                <h5>Tip 4: Season Gradually: Season throughout cooking for better flavor.</h5>
+                <h5>Tip 5: Use Fresh Ingredients: Opt for fresh herbs and produce for better taste.</h5>
+                <h5>Tip 6: Clean As You Go: Keep your workspace tidy while cooking.</h5>
+                <h5>Tip 7: Invest in Quality Cookware: Good pots, pans, and knives improve results.</h5>
+                <h5>Tip 8: Experiment: Try new recipes and have fun cooking!</h5>
+
+
+                <!-- <ul class="list-group">
+                    {% for step in steps %}
+                        <li class="list-group-item">
+                            {{ step.text }}
+                            {% if step.underline %}
+                                <ul>
+                                    {% for word in step.underline %}
+                                        <li><strong>{{ word }}</strong></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% if step.gif %}
+                                <img src="{{ step.gif }}" alt="Gif" class="img-fluid">
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul> -->
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Ingredient Information</h2>
+                <form id="ingredient-form" class="form-inline mb-3">
+                    <input type="text" id="ingredient-input" class="form-control mr-2" style="width: 400px;" placeholder="Enter ingredient">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <div id="ingredient-info" class="mt-3">
+                    <h3>Ingredient Info:</h3>
+                    <p id="ingredient-details"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('ingredient-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var ingredient = document.getElementById('ingredient-input').value;
+            fetch('/ingredient-info?ingredient=' + ingredient)
+                .then(response => response.json())
+                .then(data => {
+                    var detailsElement = document.getElementById('ingredient-details');
+                    if (data.error) {
+                        detailsElement.innerText = data.error;
+                    } else {
+                        var details = `
+                            <strong>Name:</strong> ${data.name}<br>
+                            <strong>Amount:</strong> ${data.amount} ${data.unit}<br>
+                            <strong>Cost:</strong> ${data.estimatedCost ? data.estimatedCost.value.toFixed(2) + ' ' + data.estimatedCost.unit : 'N/A'}<br>
+                            <strong>NUTRITION INFORMATION:</strong><br>
+                            ${Object.entries(data.formatted_nutrition).map(([key, value]) => `${key}: ${value}`).join('<br>')}
+                        `;
+                        detailsElement.innerHTML = details;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('ingredient-details').innerText = 'Error fetching ingredient information';
+                });
+        });
+    </script>
+</body>
+</html>

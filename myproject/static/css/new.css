@@ -39,3 +39,83 @@ input[type="checkbox"] {
 .ingredient-label {
     font-size: 1.25rem;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+button.btn {
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+
+ul.list-group {
+    margin-top: 20px;
+}
+
+/* .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+} */
+
+.list-group-item:hover {
+    background-color: #e9ecef;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.ingredient-amount {
+    font-weight: bold;
+    color: #28a745;
+}
+
+#substitutes h2 {
+    color: #17a2b8;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#substitute-list h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+    .row > .col-md-6 {
+        margin-top: 20px;
+    }
+
+    .list-group-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
