@@ -4,6 +4,19 @@
     right: 10px;
 } */
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
 .underline-word {
     text-decoration: underline;
     cursor: pointer;
@@ -28,7 +41,7 @@
 .middle-right-image {
     position: absolute;
     right: 10px;
-    top: 40%;
+    top: 37%;
     transform: translateY(-50%);
     width: 500px; /* Adjust the width as needed */
     height: auto; /* Maintain the aspect ratio */
@@ -60,3 +73,5 @@
 .mt-custom {
     margin-top: 100px; /* Adjust this value as needed */
 }
+
+
