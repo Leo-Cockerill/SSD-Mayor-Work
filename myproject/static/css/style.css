@@ -13,7 +13,7 @@ body {
 h1 {
     color: #007bff;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
 }
 
 
@@ -51,13 +51,13 @@ h1 {
     font-size: 5.5em; /* Adjust the size as needed */
     position: absolute;
     right: 10px;
-    top: -180px; /* Adjust the position as needed */
+    top: -210px; /* Adjust the position as needed */
 }
 
 .buttons {
     position: absolute;
     right: 10px;
-    top: -80px; /* Adjust the position as needed */
+    top: -120px; /* Adjust the position as needed */
 }
 
 .buttons .btn {

@@ -1,0 +1,17 @@
+body {
+    padding-top: 0px; /* Adjust this based on your navbar height */
+}
+
+.navbar {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.container {
+    margin-top: -20px; /* Ensure content below the navbar has proper spacing */
+}

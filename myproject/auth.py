@@ -18,7 +18,7 @@ def steps():
         {"text": "Step 6: To serve: Spread base of buns with sauce / condiment of choice. Top with lettuce then tomato, then hamburger patty. Pile over onions, sliced pickles, then more sauce/condiments. Top with lid of bun. Serve immediately.", "underline": ["sliced"], "gif": "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRkeHNnaXlsNnczb3EzYWl4dWl2Zzd1N2t0eGY0ZGE1c2t6dWlnZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iFyhAdgFB8kuzDN9gY/giphy.gif"},
         
     ]
-    return render_template("index.html", steps = steps)
+    return render_template("steps.html", steps = steps)
 
 @auth.route('/ingredients')
 def ingredients():
