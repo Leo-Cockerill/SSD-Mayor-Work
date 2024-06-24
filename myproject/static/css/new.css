@@ -25,3 +25,17 @@ input[type="checkbox"] {
     vertical-align: middle;
     margin-right: 10px;
 }
+
+.large-checkbox {
+    width: 25px;
+    height: 25px;
+}
+
+.large-radio {
+    width: 80px;
+    height: 25px;
+}
+
+.ingredient-label {
+    font-size: 1.25rem;
+}

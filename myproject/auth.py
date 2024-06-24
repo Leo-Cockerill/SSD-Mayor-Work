@@ -5,7 +5,7 @@ import requests
 auth = Blueprint('auth', __name__)
 
 
-SPOONACULAR_API_KEY = 'c14b8e4dea1e4b60bd840db46f91ac82'
+SPOONACULAR_API_KEY = '9e399fbe5fd64a6d8608c41a3701fe35'
 
 @auth.route('/steps')
 def steps():
@@ -23,11 +23,14 @@ def steps():
 @auth.route('/ingredients')
 def ingredients():
     ingredients = {
-    "mg flour": 200,   # in grams
-    "sugar": 100,   # in grams
-    "butter": 50,   # in grams
-    "eggs": 4,      # count
-    "milk": 500     # in ml
+    "kg beef mince": 1,   # in grams
+    "burger buns": 4, 
+    "olive oil": 2,  # in grams
+    "slices burger cheese": 8,   # in grams
+    "lettuce leaves": 8,      # count
+    "tomatoes": 2,
+    "onions": 3,
+       # in ml
 }
     servings = request.args.get('servings', 4, type=int)
     selected_ingredient = request.args.get('selected_ingredient', None)
