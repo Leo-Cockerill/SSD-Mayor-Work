@@ -4,11 +4,13 @@
 I have created a cooking app tailored for young and inexperienced cooks.
 
 ## Installation Instructions
-1. Download code
-2. Open in Visual Studio Code
-3. Click on `main.py`
-4. Click the play button in the top right
-5. Paste `http://127.0.0.1:5000` into a browser
+1. pip3 install flask
+2. Download code using green button in top right
+3. Unzip file
+4. Open in Visual Studio Code
+5. Click on `main.py`
+6. Click the play button in the top right
+7. Paste `http://127.0.0.1:5000` into a browser
 
 ## How to Use
 The recipe that is in colour is the one that is accessible.
